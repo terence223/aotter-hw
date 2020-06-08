@@ -22,7 +22,7 @@
 | on('on-ad-impression', callback) | 廣告被看到 50% 超過一秒便會呼叫 callback  |
 
 ## 關於測試
-###只寫了一個簡單的測試，測試廣告是否有被顯示出來，但由於 server 預設會隨機傳錯誤，所以若要每次都跑成功請把 mock-data.json 的 	`success : false ` 那筆物件拿掉，個人認為還需要的測試有
+只寫了一個簡單的測試，測試廣告是否有被顯示出來，但由於 server 預設會隨機傳錯誤，所以若要每次都跑成功請把 mock-data.json 的 	`success : false ` 那筆物件拿掉，個人認為還需要的測試有
 * loadAd 前沒有廣告，執行後便有
 * 成功時應該要有 callback 可以執行
 * 失敗時應該要有 callback 可以執行
