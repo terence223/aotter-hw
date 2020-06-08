@@ -20,12 +20,14 @@ const getAd = (type = '') => {
 }
 
 //api endpoint
-app.get('/ads', (req, res) => {
+app.get('/ads/jsonp', (req, res) => {
   /**
    * type: requested ad type
    */
   const { type = '' } = req.query;
-  res.json(getAd(type.toUpperCase()));
+  const resData = JSON.stringify(getAd(type.toUpperCase()))
+  res.set('Content-Type', 'application/text')
+  res.send(`jsonpCallback(${resData})`)
 })
 
 app.listen(PORT, () => {
