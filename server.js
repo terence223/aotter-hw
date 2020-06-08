@@ -20,6 +20,7 @@ const getAd = (type = '') => {
 }
 
 //api endpoint
+// 改用 jsonp 傳資料
 app.get('/ads/jsonp', (req, res) => {
   /**
    * type: requested ad type
