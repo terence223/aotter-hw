@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>電獺作業</h2>
-    <div id="aotter-ad-plugin"></div>
+    <div id="aotter-ad-plugin" style="margin-top: 1000px;"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./aotterAd.js"></script>
     <script>
@@ -20,6 +20,10 @@
 
             aotterAd.on('on-ad-failed', function() {
                 console.log('load error');
+            })
+
+            aotterAd.on('on-ad-impression', function() {
+                console.log('ad Showed');
             })
         });
     </script>
