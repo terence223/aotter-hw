@@ -51,6 +51,7 @@
 
         if(res.type === 'BANNER') {
             ad = document.createElement('img');
+            ad.width = '560'
             ad.src = res.image;
             ad.alt = res.title;
         }

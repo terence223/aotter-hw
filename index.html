@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aotter Ad Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            color: #555;
+        }
+        #is-loaded {
+            top: 35px;
+        }
+        #is-ad-show{
+            top: 86px;
+        }
+        .info {
+            position: fixed;
+            
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        #aotter-ad-plugin {
+            margin: 800px auto;
+            max-width: 560px;
+        }
+    </style>
 </head>
 <body>
-    <h2>電獺作業</h2>
-    <div id="aotter-ad-plugin" style="margin-top: 1000px;"></div>
+    <div id="is-loaded" class="info"></div>
+    <div id="is-ad-show" class="info">廣告尚未被看到</div>
+    <div id="aotter-ad-plugin"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./aotterAd.js"></script>
     <script>
@@ -15,14 +44,17 @@
             aotterAd.loadAd();
 
             aotterAd.on('on-ad-loaded', function() {
+                $('#is-loaded').text('載入廣告成功，請往下捲');
                 console.log('load success');
             })
 
             aotterAd.on('on-ad-failed', function() {
+                $('#is-loaded').text('載入廣告失敗');
                 console.log('load error');
             })
 
             aotterAd.on('on-ad-impression', function() {
+                $('#is-ad-show').text('廣告已被看到');
                 console.log('ad Showed');
             })
         });
